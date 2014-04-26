@@ -1,0 +1,23 @@
+{
+  "name": "evmit",
+  "main": "dist/evmit.js",
+  "version": "0.1.0",
+  "authors": [
+    "Ellen Gummesson <ellengummesson@gmail.com>"
+  ],
+  "description": "A tiny, modern, bare bones event emitter.",
+  "keywords": [
+    "event",
+    "emitter"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gummesson/evmit.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "package.json"
+  ]
+}
