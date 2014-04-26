@@ -1,5 +1,7 @@
 # Evmit
 
+[![Build Status](https://travis-ci.org/gummesson/evmit.svg?branch=master)](https://travis-ci.org/gummesson/evmit)
+
 A tiny, modern, bare bones event emitter for Node.js and the browser. For the latter it supports Internet Explorer 9+ and works with [Browserify](http://browserify.org/) or as a standalone library.
 
 ## Installation
