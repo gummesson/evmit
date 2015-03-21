@@ -25,14 +25,14 @@ bower install evmit --save
 #### Node.js and Browserify
 
 ~~~ javascript
-var Evmit   = require('evmit');
-var emitter = new Evmit();
+var Evmit   = require('evmit')
+var emitter = new Evmit()
 ~~~
 
 #### Standalone
 
 ~~~ javascript
-var emitter = new Evmit();
+var emitter = new Evmit()
 ~~~
 
 ### Evmit.on(name, fn)
@@ -45,11 +45,11 @@ Subscribe to an event.
 ~~~ javascript
 emitter.on('foo', function() {
   // ...
-});
+})
 
 emitter.on('foo', function(/* ... */) {
   // ...
-});
+})
 ~~~
 
 ### Evmit.once(name, fn)
@@ -62,11 +62,11 @@ Subscribe to an event only once.
 ~~~ javascript
 emitter.once('foo', function() {
   // ...
-});
+})
 
 emitter.once('foo', function(/* ... */) {
   // ...
-});
+})
 ~~~
 
 ### Evmit.emit(name[, ...])
@@ -77,9 +77,9 @@ Trigger an event.
 - `...` is the arguments that gets passed to the event.
 
 ~~~ javascript
-emitter.emit('foo', { bar: 'baz' });
+emitter.emit('foo', { bar: 'baz' })
 
-emitter.emit('foo', 'bar', 'baz');
+emitter.emit('foo', 'bar', 'baz')
 ~~~
 
 ### Evmit.off([name, fn])
@@ -92,13 +92,13 @@ Unsubscribe from an event or all events.
 If `name` is not provided it'll unsubscribe from all events.
 
 ~~~ javascript
-emitter.off();
+emitter.off()
 
-emitter.off('foo');
+emitter.off('foo')
 
 emitter.off('bar', function(/* ... */) {
   // ...
-};
+})
 ~~~
 
 ### Evmit.listeners([name])
@@ -108,10 +108,10 @@ Return all events or a single event.
 - `name` is the name of the event.
 
 ~~~ javascript
-emitter.listeners();
+emitter.listeners()
 // => { foo: [...], bar: [...] }
 
-emitter.listeners('foo');
+emitter.listeners('foo')
 // => [...]
 ~~~
 
