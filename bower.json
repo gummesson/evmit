@@ -1,7 +1,7 @@
 {
   "name": "evmit",
   "main": "dist/evmit.js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "authors": [
     "Ellen Gummesson <ellengummesson@gmail.com>"
   ],
