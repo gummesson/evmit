@@ -10,7 +10,7 @@ function Evmit() {}
 /**
  * Get an event or all events.
  *
- * @param {string} name
+ * @param  {string} name
  * @return {array|object}
  *
  * @api public
