@@ -1,56 +1,107 @@
-!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.Evmit=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
-/* Evmit */
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Evmit = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+/**
+ * Initialize `Evmit`.
+ *
+ * @api public
+ */
 
 function Evmit() {}
 
+/**
+ * Get an event or all events.
+ *
+ * @param {string} name
+ * @return {object|fn}
+ *
+ * @api public
+ */
+
 Evmit.prototype.listeners = function(name) {
-  var events = this.events || (this.events = {});
-  return name ? events[name] : events;
-};
+  var events = this.events || (this.events = {})
+  return name ? events[name] : events
+}
+
+/**
+ * Subscribe to an event.
+ *
+ * @param  {string}   name
+ * @param  {function} fn
+ * @return {this}
+ *
+ * @api public
+ */
 
 Evmit.prototype.on = function(name, fn) {
-  var events = this.listeners();
-  if (!events[name]) { events[name] = []; }
-  events[name].push(fn);
-  return this;
-};
+  var events = this.listeners()
+  if (!events[name]) events[name] = []
+  events[name].push(fn)
+  return this
+}
+
+/**
+ * Unsubscribe from an event or all events.
+ *
+ * @param  {string}   name
+ * @param  {function} fn
+ * @return {this}
+ *
+ * @api public
+ */
 
 Evmit.prototype.off = function(name, fn) {
-  var events = this.listeners();
-  if (!name) { delete this.events; }
+  var events = this.listeners()
+  if (!name) delete this.events
   if (events[name] && fn) {
-    events[name].splice(events[name].indexOf(fn), 1);
-    if (events[name].length === 0) { delete events[name]; }
-    return this;
+    events[name].splice(events[name].indexOf(fn), 1)
+    if (events[name].length === 0) delete events[name]
+    return this
   }
-  if (events[name]) { delete events[name]; }
-  return this;
-};
+  if (events[name]) delete events[name]
+  return this
+}
+
+/**
+ * Subscribe to an event only once.
+ *
+ * @param  {string}   name
+ * @param  {function} fn
+ * @return {this}
+ *
+ * @api public
+ */
 
 Evmit.prototype.once = function(name, fn) {
-  var self = this;
-  this.on(name, function cb() {
-    self.off(name, cb);
-    fn.apply(arguments);
-  });
-  return this;
-};
+  this.on(name, function done() {
+    this.off(name, done)
+    fn.apply(arguments)
+  }.bind(this))
+  return this
+}
+
+/**
+ * Trigger an event.
+ *
+ * @param {string} name
+ *
+ * @api public
+ */
 
 Evmit.prototype.emit = function(name) {
-  var events = this.listeners();
-  var args   = [].slice.call(arguments, 1);
+  var events = this.listeners()
+  var params = [].slice.call(arguments, 1)
   if (events[name]) {
     events[name].forEach(function(fn) {
-      fn.apply(this, args);
-    });
+      fn.apply(this, params)
+    })
   }
-  return this;
-};
+  return this
+}
 
-/* Exports */
+/**
+ * Exports
+ */
 
-module.exports = Evmit;
+module.exports = Evmit
 
-},{}]},{},[1])
-(1)
+},{}]},{},[1])(1)
 });
