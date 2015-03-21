@@ -3,15 +3,6 @@
   "version": "0.1.0",
   "description": "A tiny, modern, bare bones event emitter.",
   "main": "index.js",
-  "scripts": {
-    "test": "tape test/*.js",
-    "browser": "browserify test/index.js | tape-run",
-    "clean": "rm -rf dist && mkdir dist",
-    "lint": "jshint index.js test/index.js",
-    "bundle": "browserify -s Evmit index.js -o dist/evmit.js",
-    "minify": "uglifyjs dist/evmit.js -m -o dist/evmit.min.js",
-    "dist": "npm run clean && npm run bundle && npm run minify"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gummesson/evmit.git"
@@ -28,10 +19,17 @@
   },
   "homepage": "https://github.com/gummesson/evmit",
   "devDependencies": {
-    "browserify": "^3.44.2",
-    "jshint": "^2.5.0",
-    "uglify-js": "^2.4.13",
-    "tape": "^2.12.3",
-    "tape-run": "^0.1.1"
+    "browserify": "^9.0.3",
+    "smokestack": "^3.2.1",
+    "tap-closer": "^1.0.0",
+    "tape": "^3.5.0",
+    "uglify-js": "^2.4.17"
+  },
+  "scripts": {
+    "test": "node test/",
+    "test:browser": "browserify test/ | tap-closer | smokestack",
+    "build": "npm run build:js && npm run build:js:min",
+    "build:js": "browserify -s Evmit index.js -o dist/evmit.js",
+    "build:js:min": "uglifyjs dist/evmit.js -m -o dist/evmit.min.js"
   }
 }

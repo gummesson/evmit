@@ -115,16 +115,6 @@ emitter.listeners('foo')
 // => [...]
 ~~~
 
-## Tests
-
-[PhantomJS](http://phantomjs.org/) is required for the browser tests.
-
-~~~ text
-npm install
-npm test
-npm run browser
-~~~
-
 ## License
 
 The MIT License (MIT)
