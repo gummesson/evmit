@@ -81,7 +81,8 @@ Evmit.prototype.once = function(name, fn) {
 /**
  * Trigger an event.
  *
- * @param {string} name
+ * @param  {string} name
+ * @return {this}
  *
  * @api public
  */
