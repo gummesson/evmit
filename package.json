@@ -31,5 +31,8 @@
     "build": "npm run build:js && npm run build:js:min",
     "build:js": "browserify -s Evmit index.js -o dist/evmit.js",
     "build:js:min": "uglifyjs dist/evmit.js -m -o dist/evmit.min.js"
+  },
+  "dependencies": {
+    "sliced": "^1.0.1"
   }
 }

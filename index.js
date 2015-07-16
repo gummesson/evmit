@@ -1,4 +1,10 @@
 /*!
+ * Dependencies
+ */
+
+var slice = require('sliced')
+
+/*!
  * Exports
  */
 
@@ -84,7 +90,7 @@ Evmit.prototype.once = function(name, fn) {
 
 Evmit.prototype.emit = function(name) {
   var events = this.listeners()
-  var params = [].slice.call(arguments, 1)
+  var params = slice(arguments, 1)
   if (events[name]) {
     events[name].forEach(function(fn) {
       fn.apply(this, params)
