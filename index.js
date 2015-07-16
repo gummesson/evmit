@@ -9,8 +9,8 @@ function Evmit() {}
 /**
  * Get an event or all events.
  *
- * @param  {string} name
- * @return {array|object}
+ * @param  {String} name
+ * @return {Array|Object}
  */
 
 Evmit.prototype.listeners = function(name) {
@@ -21,8 +21,8 @@ Evmit.prototype.listeners = function(name) {
 /**
  * Subscribe to an event.
  *
- * @param  {string}   name
- * @param  {function} fn
+ * @param  {String}   name
+ * @param  {Function} fn
  * @return {this}
  */
 
@@ -36,8 +36,8 @@ Evmit.prototype.on = function(name, fn) {
 /**
  * Unsubscribe from an event or all events.
  *
- * @param  {string}   name
- * @param  {function} fn
+ * @param  {String}   name
+ * @param  {Function} fn
  * @return {this}
  */
 
@@ -56,8 +56,8 @@ Evmit.prototype.off = function(name, fn) {
 /**
  * Subscribe to an event only once.
  *
- * @param  {string}   name
- * @param  {function} fn
+ * @param  {String}   name
+ * @param  {Function} fn
  * @return {this}
  */
 
@@ -72,7 +72,7 @@ Evmit.prototype.once = function(name, fn) {
 /**
  * Trigger an event.
  *
- * @param  {string} name
+ * @param  {String} name
  * @return {this}
  */
 
