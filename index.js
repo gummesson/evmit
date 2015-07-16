@@ -93,7 +93,7 @@ Evmit.prototype.emit = function(name) {
   var params = slice(arguments, 1)
   if (events[name]) {
     events[name].forEach(function(fn) {
-      fn.apply(this, params)
+      fn.apply(fn, params)
     })
   }
   return this
