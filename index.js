@@ -1,4 +1,10 @@
 /**
+ * Exports
+ */
+
+module.exports = Evmit
+
+/**
  * Initialize `Evmit`.
  *
  * @constructor
@@ -86,9 +92,3 @@ Evmit.prototype.emit = function(name) {
   }
   return this
 }
-
-/**
- * Exports
- */
-
-module.exports = Evmit
