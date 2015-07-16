@@ -137,6 +137,4 @@ test('Evmit()', function(t) {
     assert.deepEqual(emitter.listeners('test'), [fn, fn], 'returns an object of a specific event')
     assert.end()
   })
-
-  t.end()
 })
