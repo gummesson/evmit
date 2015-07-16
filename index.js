@@ -1,7 +1,7 @@
 /**
  * Initialize `Evmit`.
  *
- * @api public
+ * @constructor
  */
 
 function Evmit() {}
@@ -11,8 +11,6 @@ function Evmit() {}
  *
  * @param  {string} name
  * @return {array|object}
- *
- * @api public
  */
 
 Evmit.prototype.listeners = function(name) {
@@ -26,8 +24,6 @@ Evmit.prototype.listeners = function(name) {
  * @param  {string}   name
  * @param  {function} fn
  * @return {this}
- *
- * @api public
  */
 
 Evmit.prototype.on = function(name, fn) {
@@ -43,8 +39,6 @@ Evmit.prototype.on = function(name, fn) {
  * @param  {string}   name
  * @param  {function} fn
  * @return {this}
- *
- * @api public
  */
 
 Evmit.prototype.off = function(name, fn) {
@@ -65,8 +59,6 @@ Evmit.prototype.off = function(name, fn) {
  * @param  {string}   name
  * @param  {function} fn
  * @return {this}
- *
- * @api public
  */
 
 Evmit.prototype.once = function(name, fn) {
@@ -82,8 +74,6 @@ Evmit.prototype.once = function(name, fn) {
  *
  * @param  {string} name
  * @return {this}
- *
- * @api public
  */
 
 Evmit.prototype.emit = function(name) {
